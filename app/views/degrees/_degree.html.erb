@@ -1,0 +1,18 @@
+<section class="degree clearfix">
+  <% if @user == current_user %>
+    <a href="<%= edit_degree_url(degree, subdomain: @user.username) %>" class="edit-degree no-trans"><i class="icon-edit"></i></a>
+  <% end %>
+  <aside class="degree-info">
+    <h3><%= "#{degree.d_type} #{degree.field}"%></h3>
+    <% if degree.concentration.present? %>
+      <p><%= "Focus: #{degree.concentration}"%></p>
+    <% end %>
+    <% if degree.start_date %>
+      <p><%= "#{degree.start_date.strftime('%b %Y')} - #{degree.end_date.strftime('%b %Y')}" %></p>
+    <% end %>
+    <% if degree.gpa %>
+      <p><%= "#{degree.gpa}" %> <small>GPA</small></p>
+    <% end %>
+  </aside>
+  <p style="float: right; width: 60%;"><%= degree.details %></p>
+</section>

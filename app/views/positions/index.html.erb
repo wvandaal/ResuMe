@@ -1,0 +1,12 @@
+<%= render partial: "layouts/profile-navbar" %>
+<%= render partial: "layouts/form-container" %>
+<% if current_user && @user == current_user %>
+	<a href="<%= new_position_url(subdomain: @user.username) %>" class="tabbed-link no-trans">
+		Add Position<i class="icon-plus"></i>
+	</a>
+<% end %>
+<div class="content">
+	<% @positions.try(:each) do |position| %>
+		<%= render partial: "position", locals: { position: position } %>
+	<% end %>
+</div>

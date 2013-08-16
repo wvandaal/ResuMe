@@ -1,0 +1,41 @@
+// Place all the styles related to the Sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Color Mixins */
+$blue: #254C6F;
+$green: #00B36E;
+
+#login {
+  text-align: center;
+  width: 300px;
+  form { 
+    width: 100%;
+  }
+  label {
+    float: left;
+  }
+  input {
+    float: right;
+    &[type="submit"] {
+      color: lighten(gray, 50%);
+      float: none;
+    }
+  }
+}
+
+//Form styles
+.form-wrapper {
+  padding: 20px;
+  box-shadow: 5px 5px 5px #111;
+  background: url('light_linen.png') repeat center center;
+  margin: 0 auto;
+  border-radius: 5px;
+  h1 {
+    text-align: center;
+  }
+  .edit-form {
+    padding: 20px;
+    border: 1px dashed $blue;
+  }
+}

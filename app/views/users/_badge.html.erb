@@ -1,0 +1,13 @@
+<a href="<%= root_url(subdomain: user.username) %>" class="clearfix badge">
+  <figure class="profile-pic">
+    <%= image_tag user.profile_pic_url(:thumb).to_s %>
+  </figure>
+  <section class="user-details">
+    <h1 class="name">
+      <%= "#{user.first_name} #{user.last_name}"%>
+    </h1>
+    <span class="metadata">
+      <%= user.title %>
+    </span>
+  </section>
+</a>

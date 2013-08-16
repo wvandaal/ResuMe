@@ -1,0 +1,8 @@
+<article class="code-file-badge">
+	<h2><%=link_to "#{file.project.title} / ", code_url(subdomain: @user.username) %><small><%= file.pathname %></small></h2>
+	<div class="code">
+		<h4><%= file.language %></h4>
+		<%= raw Pygments.highlight(file.code, lexer: file.language.downcase) %>
+	</div>
+	<p><%= file.description %></p>
+</article>

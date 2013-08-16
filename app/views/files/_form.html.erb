@@ -1,0 +1,17 @@
+<%= form_for([@file], remote: true, html: {id: "file-form", class: "basic-form"}) do |f| %>
+	<h1><%= header %></h1>
+  <input type="hidden" name="project_id" value="<%= params[:project_id] %>">
+  <%= f.label :pathname, "Relative pathname :" %>
+  <%= f.text_field :pathname %><br><br>
+
+  <%= f.label :language, "Language :" %>
+  <%= f.select(:language, Pygments.lexers.keys.map {|k| k unless k.include?(" ")}.compact.sort) %><br><br>
+
+  <%= f.label :code, "Code :" %>
+  <%= f.text_area :code, cols: "50", rows: "5" %><br><br>
+
+  <%= f.label :description, "Description :" %>
+  <%= f.text_area :description, cols: "50", rows: "5" %><br><br>
+
+  <%= f.submit %>
+<% end %>

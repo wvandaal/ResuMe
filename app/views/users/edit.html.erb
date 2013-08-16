@@ -1,0 +1,47 @@
+<%= render partial: "layouts/edit-navbar" %>
+<div class="content">
+    <form class="basic-form" action="<%= user_url(@user) %>" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="_method" value="put">
+      <h1>Edit Your Account</h1><br>
+      <h4>Personal</h4>
+      <label for="first-name">First Name :</label>
+      <input id="first-name" name="user[first_name]"
+        value="<%= @user.first_name %>"><br><br>
+
+      <label for="last-name">Last Name :</label>
+      <input id="last-name" name="user[last_name]"
+        value="<%= @user.last_name %>">
+      <br>
+      <br>
+      <label for="profile-pic">Profile Picture :</label>
+      <input id="profile-pic" type="file" multipart="true"
+        name="user[profile_pic]" accept="image/png,image/jpeg,image/gif"
+        value="<%= @user.profile_pic %>"><br><br>
+      <h4>Current Location</h4>
+      <label for="location">Location :</label>
+      <input id="location" name="user[location]" style="width: 300px"
+        value="<%= @user.location %>">
+      <br>
+      <br>
+      <h4>Login/Subdomain</h4>
+      <label for="username">Username :</label>
+      <input id="username" name="user[username]" value="<%= @user.username %>">
+      <br>
+      <br>
+      <h4>Password</h4>
+      <label for="old-password">Old Password :</label>
+      <input type="password" id="old-password" name="old_password"><br><br>
+
+      <label for="new-password">New Password :</label>
+      <input type="password" id="new-password" name="password"><br><br>
+
+      <label for="new-password">Confirmation :</label>
+      <input type="password" id="new-password" name="password_confirmation">
+      <br>
+      <br>
+
+
+      <%= render partial: "layouts/csrf" %>
+      <br><br><br><input type="submit" value="Save Changes">
+    </form>
+</div>

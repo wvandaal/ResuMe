@@ -1,0 +1,13 @@
+<%= render partial: "layouts/profile-navbar" %>
+
+<div class="content">
+	<div class="file-container clearfix">
+		<aside class="file-navbar">
+			<h3><%= @project.title %>/</h3>
+			<ul>
+				<%= render partial: "projects/branch", locals: {branch: @project.generate_file_tree} %>
+			</ul>
+		</aside>
+		<%= render partial: "file", locals: {file: @file} %>
+	</div>
+</div>

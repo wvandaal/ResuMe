@@ -1,0 +1,5 @@
+<div class="content">
+  <% @users.try(:each) do |user| %>
+    <%= render partial: "badge", locals: {user: user}%>
+  <% end %>
+</div>

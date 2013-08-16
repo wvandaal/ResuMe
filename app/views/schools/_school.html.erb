@@ -1,0 +1,19 @@
+<a href="<%= edit_school_url(school) %>" class="edit-school-badge no-trans">
+  <article class="school-badge clearfix">
+    <figure class="school-logo">
+      <% unless school.logo.present? %>
+        <%= image_tag("education.png", class:"placeholder")%>
+      <% else%>
+        <%= image_tag(school.logo)%>
+      <% end %>
+    </figure>
+    <section class="school-info">
+      <div class="school-header">
+        <h1><%= school.name %></h1>
+        <h5><%= school.address %></h5>
+      </div>
+      <br>
+      <p><%= school.website %></p>
+    </section>
+  </article>
+</a>

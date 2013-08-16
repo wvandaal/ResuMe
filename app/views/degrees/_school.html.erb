@@ -1,0 +1,21 @@
+<article class="school-badge clearfix">
+  <figure class="school-logo">
+    <% unless school.logo.present? %>
+      <%= image_tag("education.png", class:"placeholder")%>
+    <% else%>
+      <%= image_tag(school.logo)%>
+    <% end %>
+  </figure>
+  <section class="school-info">
+    <div class="school-header">
+      <h1><%= school.name %></h1>
+      <h5><%= school.address %></h5>
+    </div>
+    <br>
+    <%= link_to "Visit website", school.website, id: "website"%>
+  </section>
+  <% school.degrees.where(user_id: @user.id).each do |degree| %>
+    <br>
+    <%= render partial: "degree", locals: { degree: degree } %>
+  <% end %>
+</article>

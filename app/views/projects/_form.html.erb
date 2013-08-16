@@ -1,0 +1,16 @@
+<%= form_for([:code, @project], remote: true, html: {id: "project-form", class: "basic-form"}) do |f| %>
+	<h1><%= header %></h1>
+  <%= f.label :title, "Project Title :" %>
+  <%= f.text_field :title %><br><br>
+
+  <%= f.label :subtitle, "Subtitle :" %>
+  <%= f.text_field :subtitle %><br><br>
+
+  <%= f.label :description, "Description :" %>
+  <%= f.text_area :description, cols: "50", rows: "5" %><br><br>
+
+	<label for="project_screenshot">Screenshot :
+  <%= f.file_field :screenshot %></label><br><br><br>
+
+  <%= f.submit %>
+<% end %>

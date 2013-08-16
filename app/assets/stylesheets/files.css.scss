@@ -1,0 +1,65 @@
+// Place all the styles related to the Files controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$red: #CE0926;
+
+div.form-container {
+	article.code-file-badge {
+		background: rgba(255,255,255,0.8);
+		color: black;
+	}
+	div.file-container {
+		background: rgba(0,0,0,0.8);
+	}
+}
+
+article.code-file-badge {
+	margin: 0 auto;
+	color: white;
+	width: 800px;
+	background: rgba(0,0,0,0.4);
+	padding: 25px;
+	h2 > a {
+		color: $red;
+	}
+	div.code {
+		position: relative;
+		h4 {
+			position: absolute;
+			top: -10px;
+			right: 15px;
+			color: $red;
+		}
+	}
+	pre {
+		background: rgba(255,255,255,0.8);
+		height: 600px;
+		overflow: scroll;
+		padding: 10px;
+	}
+}
+
+aside.file-navbar {
+	color: white;
+	width: 200px;
+	padding: 25px;
+	float: left;
+	ul {
+		margin: 10px 25px;
+		list-style-type: none;
+		border-left: 1px solid white;
+	}
+	a:hover {
+		color: $red;
+	}
+}
+
+div.file-container {
+	background-color: rgba(0,0,0,0.4);
+	margin: 0 auto;
+	width: 1100px;
+	article.code-file-badge {
+		float: right;
+	}
+}

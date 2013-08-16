@@ -1,0 +1,317 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* Color Mixins */
+$blue: #254C6F;
+$green: #00B36E;
+$red: #CE0926;
+$gold: #F8A025;
+
+
+// Navbar
+.navbar {
+  position: relative;
+	width: 100%;
+  height: 40px;
+  z-index: 1000;
+	background-color: #eee;
+	background: url('light_linen.png') repeat center center;
+	nav {
+		width: 90%;
+		min-width: 800px;
+		margin: 0 auto;
+		#brand {
+			margin: 3px 0 0 0;
+			float: left;
+      padding: 5px 0;
+			a {
+        font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+				color: darken(gray, 10%);
+				display: block;
+        font-size: 1.1em;
+        font-weight: bold;
+			}
+		}
+		ul {
+      margin: 10px 0;
+			float: right;
+			li {
+				display: block;
+				float: left;
+				opacity: .6;
+				a {
+					padding: 5px 10px;
+          font-size: .9em;
+				}
+				a.login {
+          padding-right: 0;
+					&:hover {
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+}
+
+//Profile Navbar
+.profile-navbar {
+  position: relative;
+  z-index: 1000;
+  background: rgba(0,0,0, .4);
+  width: 100%;
+  height: 40px;
+  nav {
+    margin: 0 auto;
+    width: 90%;
+  }
+  ul {
+    float: left;
+    margin: 0;
+    li {
+      float: left;
+      &:first-child > a { padding-left: 0; }
+      a {
+        display: block;
+        padding: 12px 25px;
+        color: gray;
+        transition: all .5s;
+        &:hover {
+          color: lighten(gray, 50%);
+        }
+        &.selected {color: orange;};
+      }
+    }
+  }
+}
+#user-brand {
+  color: gray;
+  font-size: 1em;
+  font-weight: bold;
+  float: right;
+  margin: 13px 0 0 0;
+}
+
+#edit {
+  padding: 10px 0;
+  i { padding-left: 10px; }
+  color: gray;
+  float: right;
+}
+
+.navbar-fixed-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0, .8);
+  nav {
+    width: 95%;
+  }
+}
+
+//Footer
+.site-footer {
+  bottom: 0;
+  z-index: 1000;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(100, 100, 100, .4);
+  section.byline {
+    padding-top: 15px;
+    div {
+      font-weight: bold;
+      color: gray;
+      font-size: .9em;
+    }
+  }
+}
+
+
+//Users Badge
+.badge {
+  background-color:rgba(0,0,0,0.8);
+  border-radius: 100px;
+  .profile-pic {
+    margin: 10px;
+    float: left;
+    border-radius: 100px;
+    img {
+      display: block;
+      width: 125px;
+      height: 125px;
+      border: 3px solid white;
+      border-radius: 100px;
+    }
+  }
+  .user-details {
+    float:right;
+    width: 300px;
+    height: 145px;
+    padding-left: 15px;
+    .name {
+      color: white;
+      font-weight: normal;
+    }
+    .metadata {
+      font-size: .8em;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: $green;
+    }
+  }
+}
+
+//Show styles
+figure#profile-pic {
+  position: absolute;
+  top: 400px;
+  left: 50%;
+  margin: -93px 0 0 -93px;
+  background: url('light_linen.png');
+  border-radius: 100px;
+  img.profile-pic {
+    width: 180px;
+    height: 180px;
+    display: block;
+    margin: 3px;
+    border-radius: 100px;
+  }
+}
+
+.bubble-label {
+  position: relative;
+  background: url('light_linen.png');
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  float:left;
+  i {
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    color: white;
+    padding: 10px;
+    border-radius: 30px;
+    background-color: $red;
+  }
+}
+
+.large-bubble {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: url('light_linen.png');
+  border-radius: 200px;
+  span.bubble-content {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    color: $blue;
+    text-align: center;
+    height: 140px;
+    width: 152px;
+    display: block;
+    border-radius: 200px;
+    h1 {
+      font-size: 1.4em;
+      font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+    }
+    h2 {
+      color: $blue;
+      font-size: .8em;
+      font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+    }
+    em {
+      font-style: normal;
+      text-decoration: underline;
+    }
+  }
+}
+
+.small-bubble {
+  position: absolute;
+  min-width: 125px;
+  min-height: 125px;
+  background: url('light_linen.png');
+  border-radius: 200px;
+  .bubble-label {
+    top: -15px;
+    left: -10px;
+  }
+  span.bubble-content {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    color: $blue;
+    text-align: center;
+    height: 100px;
+    width: 75px;
+    display: block;
+    border-radius: 200px;
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0;
+      font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+    }
+    h1 { font-size: 3em; }
+    h2 { font-size: 1.7em; }
+    h3 { font-size: 1.3em; }
+    h4 { font-size: 1em; }
+    h5 { font-size: .8em;}
+    em {
+      font-style: normal;
+      text-decoration: underline;
+    }
+  }
+}
+
+figure#education {
+  top: 150px;
+  left: 15%;
+  h1 {
+    color: $red;
+    font-size: 1.2em;
+    font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+  }
+}
+
+figure#code {
+  top: 140px;
+  left: 40%;
+  i { background-color: $green; }
+  h2 { color: $green; }
+}
+
+figure#honors {
+  top: 400px;
+  left: 30%;
+  i { background-color: $gold; }
+  h3 { color: $gold; }
+}
+
+figure#employment {
+  top: 300px;
+  left: 60%;
+  i { background-color: $blue; }
+}
+
+//Tabbed Link Styles
+a.tabbed-link {
+  font-size: .8em;
+  position: absolute;
+  padding: 10px 15px;
+  color: lighten(gray, 30%);
+  top: 100px;
+  width: 100px;
+  left: -90px;
+  background: rgba(0,0,0, .4);
+  transition: all .5s;
+  i {
+    margin-left: 15px
+  }
+  &:hover {
+    left: 0;
+  }
+}
+

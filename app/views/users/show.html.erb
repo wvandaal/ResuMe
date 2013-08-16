@@ -1,0 +1,65 @@
+<!-- Navbar -->
+<%= render partial: "layouts/profile-navbar" %>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- Profile pic -->
+  <figure id="profile-pic" class="animated bounceIn">
+    <%= image_tag @user.profile_pic_url(:large_thumb).to_s, class: "profile-pic" %>
+  </figure>
+
+  <!-- Education Bubble -->
+  <a href="<%= education_url(subdomain: @user.username) %>">
+    <figure id="education" class="large-bubble animated bounceIn">
+      <div class="bubble-label">
+        <i class="icon-book"></i>
+      </div>
+      <span class="bubble-content">
+        <h2>I attended</h2><h1><%= @user.school.name %></h1>
+          <%= image_tag @user.school.logo, width: "50%" %>
+        </span>
+    </figure>
+  </a>
+
+  <!-- Code Bubble -->
+  <a href="<%= code_url(subdomain: @user.username) %>">
+    <figure id="code" class="small-bubble animated bounceIn">
+      <div class="bubble-label">
+        <i class="icon-terminal"></i>
+      </div>
+      <span class="bubble-content">
+        <h5>Check out my </h5><h2>Code</h2>
+      </span>
+    </figure>
+  </a>
+
+  <!-- Honors Bubble -->
+
+  <a href="#">
+    <figure id="honors" class="small-bubble animated bounceIn">
+      <div class="bubble-label">
+        <i class="icon-trophy"></i>
+      </div>
+      <span class="bubble-content">
+        <h4>My </h4><h3>Honors</h3>
+      </span>
+    </figure>
+  </a>
+
+  <!-- Education Bubble -->
+  <a href="<%= employment_url(subdomain: @user.username) %>">
+    <figure id="employment" class="large-bubble animated bounceIn">
+      <div class="bubble-label">
+        <i class="icon-list-alt"></i>
+      </div>
+      <span class="bubble-content">
+        <h2>My Experience</h2>
+          <% @user.employers.uniq[0..2].each do |emp| %>
+            <%= image_tag emp.logo, width: "50%" %>
+          <% end %>
+        </span>
+    </figure>
+  </a>
+
+</div>

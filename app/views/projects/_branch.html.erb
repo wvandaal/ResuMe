@@ -1,0 +1,15 @@
+<% directories = branch.keys.reject{|k| branch[k].is_a?(ActiveRecord::Base)}.sort %>
+<% leaves = branch.keys.select{|k| branch[k].is_a?(ActiveRecord::Base) }.sort %>
+<% directories.each do |dir| %>
+	<li>— <%= dir %></li>
+		<ul>
+			<%= render partial: "branch", locals: {branch: branch[dir]} %>
+		</ul>
+<% end %>
+<% leaves.each do |leaf| %>
+	<li>
+		<a href="<%= code_file_url(branch[leaf], subdomain: @user.username) %>" class="view-file no-trans">
+			— <%= leaf %>
+		</a>
+	</li>
+<% end %>

@@ -1,0 +1,79 @@
+// Place all the styles related to the Degrees controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$green: #00B36E;
+$red: #CE0926;
+
+
+article.school-badge {
+  &:first-child {margin-top: 0;}
+  margin: 100px auto 0;
+  width: 60%;
+  min-width: 800px;
+  background: rgba(0, 0, 0, 0.4);
+  color: lighten(gray, 30%);
+  padding: 15px;
+  section.school-info {
+    margin-top: 5px;
+    text-align: center;
+    div.school-header {
+      display: inline-block;
+    }
+    h1 {
+      margin: 0;
+      float: left;
+      font-size: 1.5em;
+      padding-right: 15px;
+      border-right: 1px solid #aaa;
+    }
+    h5 {
+      margin: 7px 15px;
+      float: left;
+      text-transform: uppercase;
+      font-size: .7em;
+    }
+    #website {
+      font-size: .8em;
+      text-transform: uppercase;
+      color: $green;
+    }
+  }
+  figure.school-logo {
+    margin: -75px auto 20px;
+    text-align: center;
+    width: 120px;
+    height: 120px;
+    border: 3px solid white;
+    background: url('red_linen.png');
+    border-radius: 100px;
+    overflow: hidden;
+    img {
+      max-width: 100px;
+      max-height: 100px;
+      padding: 10px;
+      &.placeholder {
+        border-radius: 100px;
+        width: 110px;
+        border: none;
+        padding: 10px;
+      }
+    }
+  }
+}
+
+section.degree {
+  clear: both;
+  aside.degree-info {
+    width: 280px;
+    float: left;
+  }
+  p, h3 {
+    margin: 10px;
+  }
+  a.edit-degree {
+    position: relative;
+    float: left;
+  }
+}
+

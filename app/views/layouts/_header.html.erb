@@ -1,0 +1,15 @@
+<header class="navbar">
+	<nav class="clearfix">
+		<h1 id="brand"><%= link_to "V | D", root_url, class: "inset"%></h1>
+		<ul>
+      <% if current_user.try(:admin) %>
+      	<li><a href="#">Admin Settings <i class="icon-cog icon-large"></i></a></li>
+      <% end %>
+      <% if current_user %>
+        <li><a href="<%= logout_url %>" class="login no-trans">Log Out <i class="icon-signout icon-large"></i></a></li>
+      <% else %>
+  			<li><a href="<%= login_url %>" class="login">Log In <i class="icon-signin icon-large"></i></a></li>
+      <% end %>
+		</ul>
+	</nav>
+</header>

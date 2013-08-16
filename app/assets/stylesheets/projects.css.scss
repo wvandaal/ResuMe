@@ -1,0 +1,136 @@
+// Place all the styles related to the Projects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$green: #00B36E;
+$red: #CE0926;
+
+section.files {
+	position: relative;
+	display: none;
+	background: rgba(255, 255, 255, 0.4);
+	padding: 10px 10px 0;
+	margin: 0 20px -10px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	ul {
+		margin: 10px 25px;
+		border-left: 1px solid white;
+		&.files {
+			margin-top: 30px;
+			float:left;
+			list-style-type: disc; 
+			list-style-position: inside;
+			border: none;
+			width: 40%;
+			li {
+				margin: 5px 0;
+			}
+			h3 {text-align: center;}
+		}
+	}
+	a:hover {color: $red;}
+	a.new-file {
+		opacity: .7;
+		position: absolute;
+		z-index: 100;
+		top: 0;
+		right: 0;
+		padding: 5px 15px;
+		font-size: .8em;
+		border-bottom: 1px solid rgba(255,255,255,0.4);
+		border-left: 1px solid rgba(255,255,255,0.4);
+		border-bottom-left-radius: 5px;
+		color: white;
+		&:hover { 
+			background: rgba(255,255,255,0.4);
+			opacity: 1;
+			color: black;
+		}
+		i {
+			color: white;
+			margin-right: 10px;
+		}
+	}
+	h2 {
+		padding: 10px 0;
+		margin: -10px -10px 0;
+		text-align: center;
+		background: url('red_linen.png');
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+	}
+	ul.directory {
+		margin: 20px 0;
+	}
+	aside.directory-structure {
+		margin: 30px 0;
+		padding-left: 10%;
+		border-left: 1px solid rgba(255,255,255, 0.4);
+	}
+}
+
+article.project-badge {
+	color: lighten(gray, 60%);
+	padding: 20px;
+	background: rgba(0,0,0,.4);
+	width: 800px;
+	margin: 0 auto 20px;
+	label.show-files-button {
+		border-radius: 5px;
+		display: block;
+		margin: 30px auto -10px;
+		padding: 5px;
+		width: 30%;
+		opacity: .3;
+		background: url('down_arrow.png') no-repeat center center;
+		background-size: 70px 20px;
+		background-color: rgba(255,255,255,1);
+	}
+	input[type="checkbox"]:checked { 
+		~ label.show-files-button {
+			background: url('up_arrow.png') no-repeat center center;
+			background-color: rgba(255,255,255,1);
+			background-size: 120px 30px;
+		}
+		~ section.files{
+			display:block;
+		}
+	}
+	h1 { 
+		margin-bottom: 5px;
+		font-size: 2em;
+		i {
+			font-size: .6em;
+		}
+	}
+	h5 {
+		margin: 5px 10px 10px;
+	}
+}
+
+.pagination {
+  text-align: center;
+  padding: .3em; 
+  margin-bottom: 10px;
+  a {
+  	color: black;
+  	font-weight: bold;
+  	background: rgba(255,255,255,0.4);
+  	padding: 10px 10px 5px;
+  	&:hover {
+  		background: rgba(255,255,255,0.8);
+  		color: $green;
+  	}
+  }
+  em.current {
+  	padding: 10px 10px 5px;
+  	background: rgba(255,255,255,0.8);
+  	color: $red;
+  	font-style: normal;
+  }
+  .next_page, .previous_page {
+  	display: none;
+  }
+}
+  

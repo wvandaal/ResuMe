@@ -1,0 +1,42 @@
+<article class="project-badge">
+	<figure>
+		<%= image_tag project.screenshot_url(:masthead) if project.screenshot_url.present? %>
+	</figure>
+	<h1>
+		<%= project.title %>
+		<% if @user == current_user %>
+			<a href="<%= edit_code_project_url(project, subdomain: current_user.username) %>" class="edit-project no-trans">
+				<i class="icon-edit"></i>
+			</a>
+		<% end %>
+	</h1>
+	<h5><%= "↳ #{project.subtitle}" if project.subtitle.present? %></h5>
+	<p><%= project.description %></p>
+	<input type="checkbox" id="show-files-<%= project.title.downcase %>" class="show" style="display:none;">
+	<section class="files clearfix">
+		<a href="<%= new_code_file_url(project_id: project, subdomain: current_user.username) %>" class="new-file no-trans">
+			<i class="icon-plus"></i>New File
+		</a>
+		<h2>Files</h2>
+		<ul class="files">
+			<% if project.code_files.present? %>
+				<h3>List of Files</h3>
+				<% project.code_files.try(:each) do |file| %>
+					<li>
+						<a href="<%= code_file_url(file, subdomain: current_user.username) %>" class="view-file no-trans">
+							<%= file.pathname %>
+						</a>
+					</li>
+				<% end %>
+			</ul>
+			<aside class="directory-structure" style="float:right; width: 40%; background">
+				<h3>Directory Structure</h3>
+				<h4><%=project.title%>/</h4>
+				<ul>
+					<%= render partial: "projects/branch", locals: {branch: project.generate_file_tree} %>
+				</ul>
+			<% end %>
+		</aside>
+	</section>
+	<label for="show-files-<%= project.title.downcase %>" class="show-files-button">Show</label>
+</article>

@@ -1,0 +1,16 @@
+<%= form_for(@school, remote: true, html: {id: "school-form", class: "basic-form"}) do |f| %>
+	<h1><%= header %></h1>
+  <%= f.label :name, "Name :" %>
+  <%= f.text_field :name %><br><br>
+
+  <%= f.label :address, "Address :" %>
+  <%= f.text_field :address %><br><br>
+
+  <%= f.label :website, "Website URL :" %>
+  <%= f.text_field :website %><br><br>
+
+  <%= f.label :logo, "Logo URL:" %>
+  <%= f.text_field :logo %><br><br><br>
+
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,14 @@
+<header class="profile-navbar clearfix">
+  <nav class="clearfix">
+    <h1 id="user-brand"><a href="<%= root_url(subdomain: current_user.username) %>"
+    class="inset">View Profile</a></h1>
+    <ul>
+      <li><a href="<%= education_url(subdomain: current_user.username) %>">Education</a></li>
+      <li><a href="<%= employment_url(subdomain: current_user.username) %>">Employment</a></li>
+      <li><a href="<%= code_url(subdomain: current_user.username) %>">Code</a></li>
+      <li><a href="#">Honors</a></li>
+      <li><a href="#">Photos</a></li>
+      <li><a href="#">Links</a></li>
+    </ul>
+  </nav>
+</header>

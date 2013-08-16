@@ -1,0 +1,11 @@
+<footer class="site-footer">
+  <section class="byline">
+    <div class="inset">built with love by willem
+      <% if debug %>
+        <br><%= params %><br><%= session %><br>
+        <%= "Current User: -#{current_user.try(:username)}-" %>
+      <% end %>
+    </div>
+
+  </section>
+</footer>

@@ -1,0 +1,11 @@
+<%= render partial: "layouts/form-container" %>
+<a href="<%= new_school_url %>" class="tabbed-link no-trans" style="top: 60px;">Add School <i class="icon-plus"></i></a>
+<div class="content">
+  <% @schools.try(:each_slice, 2) do |slice| %>
+    <div class="row clearfix">
+      <% slice.try(:each) do |school| %>
+	      <%= render partial: "school", locals: {school: school} %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

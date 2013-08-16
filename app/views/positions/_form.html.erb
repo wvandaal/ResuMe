@@ -1,0 +1,47 @@
+<%= form_for(@position, remote: true, html: {id: "position-form", class: "basic-form"}) do |f| %>
+	<h1><%= header %></h1>
+	<%= f.label :title %>
+	<%= f.text_field :title %><br><br>
+
+  <%= f.label :department, "Department :" %>
+  <%= f.text_field :department %><br><br>
+
+  <%= f.label :location, "Location :" %>
+  <%= f.text_field :location %><br><br>
+
+  <%= f.label :start_date, "Start Date :" %>
+  <%= f.date_select(:start_date) %><br><br>
+
+  <%= f.label :end_date, "Finish Date :" %>
+  <%= f.date_select(:end_date) %><br><br>
+
+	<%= f.label :description, "Description :" %>
+  <%= f.text_area :description, rows: "5", cols: "50" %><br><br>
+
+  <h4>Employer</h4>
+	<input type="radio" name="choice" value="company_id" checked> Chose Existing Employer
+	<input type="radio" name="choice" id="new-company" value="company_attributes"> Create New Company<br><br>
+
+	<label for="position_company_id">Select Employer :
+  <%= f.select(:company_id, 
+  	Company.select('name, id').map{ |school| [school.name, school.id] }, {include_blank: true}) %><br><br></label>
+
+
+    <% unless @position.id %>
+	  <%= f.fields_for :company do |c| %>
+		  <fieldset id="company-form">
+		  	<h4>New Company</h4>
+		  	<%= c.label :name, "Company Name :" %>
+		  	<%= c.text_field :name %><br><br>
+
+		  	<%= c.label :website, "Website URL :" %>
+		  	<%= c.text_field :website %><br><br>
+
+		  	<%= c.label :logo, "Logo URL :" %>
+		  	<%= c.text_field :logo %><br><br>
+		  </fieldset><br><br>
+	  <% end %>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>

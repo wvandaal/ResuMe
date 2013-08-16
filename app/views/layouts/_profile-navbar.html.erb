@@ -1,0 +1,31 @@
+<header class="profile-navbar clearfix">
+  <nav class="clearfix">
+    <% unless @user == current_user %>
+      <h1 id="user-brand"><a href="<%= root_url(subdomain: @user.username) %>"
+        ><%= "#{@user.first_name} #{@user.last_name}"%></a></h1>
+      <ul>
+        <% @user.menu_items.try(:each) do |item| %>
+          <%= render partial: "layouts/navbar-link",
+          locals: {string: "#{item}_url(subdomain: '#{@user.username}')",
+          item: item} %>
+        <% end %>
+        <li><a href="#">Honors</a></li>
+        <li><a href="#">Photos</a></li>
+        <li><a href="#">Links</a></li>
+      </ul>
+    <% else %>
+      <a href="<%= edit_user_url(@user) %>" id="edit">
+        Edit Profile<i class="icon-cog icon-large"></i>
+      </a>
+      <ul>
+        <li><a href="<%= education_url(subdomain: @user.username) %>">Education</a></li>
+        <li><a href="<%= employment_url(subdomain: @user.username) %>">Employment</a></li>
+        <li><a href="<%= code_url(subdomain: @user.username) %>">Code</a></li>
+        <li><a href="#">Honors</a></li>
+        <li><a href="#">Photos</a></li>
+        <li><a href="#">Links</a></li>
+      </ul>
+    <% end %>
+
+  </nav>
+</header>

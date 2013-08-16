@@ -1,0 +1,18 @@
+<div class="content">
+<section id="login" class="form-wrapper">
+  <form class="clearfix" action="<%= sessions_url %>" method="post">
+    <label for="username">Username :</label>
+    <input id="username" name="username">
+    <br>
+    <br>
+    <br>
+    <label for="password">Password :</label>
+    <input type="password" id="password" name="password">
+    <br>
+    <br>
+    <br>
+    <%= render partial: "layouts/csrf" %>
+    <input type="submit" value="Log In">
+  </form>
+</section>
+</div>

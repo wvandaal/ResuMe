@@ -1,0 +1,10 @@
+<%= render partial: "layouts/form-container" %>
+<%= render partial: "layouts/profile-navbar" %>
+<% if current_user && @user == current_user %>
+	<a href="<%= new_degree_url(subdomain: current_user.username) %>" class="tabbed-link">
+		Add Degree<i class="icon-plus"></i>
+	</a>
+<% end %>
+<div class="content">
+  <%= render partial: "school", collection: @schools %>
+</div>

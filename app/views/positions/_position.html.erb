@@ -1,0 +1,33 @@
+<article class="position-badge clearfix">
+	<figure class="company-logo">
+		<%= image_tag position.company.logo, class: "company-logo" %>
+		<% if @user == current_user %>
+			<ul class="edit-nav">
+				<li>
+					<a href="<%= edit_position_url(position, subdomain: current_user.username) %>" class="edit-position no-trans">
+						<i class="icon-edit"></i>
+					</a>
+				</li>
+				<li>
+					<form action="<%= position_url(position, subdomain: current_user.username) %>" 
+						method="post" data-remote="true">
+						<input name="_method" type="hidden" value="delete">
+						<%= render partial: "layouts/csrf" %>
+						<button class="link-button delete-button" type="submit"><i class="icon-remove"></i></button>
+					</form>
+				</li>
+			</ul>
+		<% end %>
+	</figure>
+	<aside class="position-info">
+		<h4><%= "#{position.title} at #{position.company.name}"%></h4>
+		<h4><%= position.department if position.department.present? %></h4>
+		<h4><%= "#{position.start_date.strftime('%b %Y')} - #{position.end_date.strftime('%b %Y')}" %></h4>
+		<h4><%= position.location if position.location.present? %></h4>
+	</aside>
+	<section class="position-details clearfix">
+		<% if position.description.present? %>
+			<p><%= position.description %></p>
+		<% end %>
+	</section>
+</article>

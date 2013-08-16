@@ -1,0 +1,80 @@
+// Place all the styles related to the Positions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+article.position-badge {
+	width: 60%;
+	min-width: 800px;
+	position: relative;
+	background: rgba(0,0,0, .4);
+	color: lighten(gray, 60%);
+	padding: 10px 20px;
+	opacity: .7;
+	border-radius: 10px;
+	height: auto;
+	margin: 0 auto 20px;
+	&:hover {
+		figure > ul.edit-nav {display: block;}
+	}
+	h4 {
+		margin: 15px 0;
+	}
+	figure {
+		position: absolute;
+		top: 0;
+		left: 0;
+		border-radius: 10px;
+		background: url('red_linen.png');
+		height: 100%;
+		text-align: center;
+		img.company-logo {
+			max-width: 140px;
+			margin: 30px;
+			border-radius: 10px;
+		}
+		ul.edit-nav {
+			position: absolute;
+			bottom: 10px;
+			left: 50%;
+			margin-left: -55px;
+			width: 110px;
+			display: none;
+			li > a {
+				float: right;
+				padding: 5px 20px;
+			}
+		}
+	}
+	aside.position-info {
+		float:left;
+		margin-left: 180px;
+		margin-right: 20px;
+		width: 280px;
+		text-align: center;
+	}
+	section.position-details {
+		min-width: 300px;
+		width: 40%;
+		margin: 0 auto;
+		p {
+			float: right;
+		}
+	}
+}
+
+#position-form {
+	fieldset { display: none;	}
+	h4 { text-align: center; }
+	input#new-company {margin-left: 100px;}
+	label[for="position_company_id"] {text-align: center;}
+	input#new-company:checked {
+		~ label[for="position_company_id"] { display: none;	}
+		~ fieldset { display: block !important;	}
+	}
+}
+
+
+.nested-form-header {
+	text-align: center;
+}
